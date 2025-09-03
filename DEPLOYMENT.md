@@ -108,6 +108,23 @@ https://YOUR_USERNAME.github.io/REPOSITORY_NAME
 - Ensure the homepage URL in `package.json` matches your repository
 - Check that the build output directory is correct (`build/`)
 
+### Blank Page / Assets Not Loading
+
+If your page loads but shows a blank screen with console errors like:
+```
+GET https://username.github.io/assets/index-xxx.js net::ERR_ABORTED 404
+```
+
+This is a base path issue. Run the fix script:
+```bash
+./fix-github-pages.sh
+```
+
+Or manually fix by updating `vite.config.ts`:
+```typescript
+base: process.env.NODE_ENV === 'production' ? '/REPOSITORY_NAME/' : '/'
+```
+
 ## Custom Domain (Optional)
 
 To use a custom domain:

@@ -92,6 +92,13 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
 
 For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
+### Troubleshooting
+
+If you encounter a blank page after deployment, run:
+```bash
+./fix-github-pages.sh
+```
+
 ### Live Demo
 
 Once deployed, your site will be available at:

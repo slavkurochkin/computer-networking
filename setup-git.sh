@@ -41,8 +41,14 @@ if command -v sed &> /dev/null; then
     sed -i.bak "s|https://YOUR_USERNAME.github.io/computer-networking|https://${GITHUB_USERNAME}.github.io/${REPO_NAME}|g" package.json
     rm package.json.bak 2>/dev/null || true
     echo "✅ Updated package.json"
+    
+    # Also update vite.config.ts with the correct base path
+    sed -i.bak "s|/computer-networking/|/${REPO_NAME}/|g" vite.config.ts
+    rm vite.config.ts.bak 2>/dev/null || true
+    echo "✅ Updated vite.config.ts"
 else
     echo "⚠️  Please manually update package.json with: https://${GITHUB_USERNAME}.github.io/${REPO_NAME}"
+    echo "⚠️  Please manually update vite.config.ts base path to: /${REPO_NAME}/"
 fi
 
 echo ""
